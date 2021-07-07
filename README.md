@@ -15,12 +15,11 @@ npm install --save u-mix_library
 ```jsx
 import React, { Component } from 'react'
 
-import MyComponent from 'u-mix_library'
-import 'u-mix_library/dist/index.css'
+import {Button} from 'u-mix_library'
 
 class Example extends Component {
   render() {
-    return <MyComponent />
+    return <Button>{Component}</Button>
   }
 }
 ```

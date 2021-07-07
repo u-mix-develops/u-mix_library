@@ -1,6 +1,16 @@
 import React from 'react'
-import styles from './styles.module.css'
+import ButtonUmix from './components/Button'
+import styles from './styles.module.scss'
 
-export const ExampleComponent = ({ text }) => {
-  return <div className={styles.test}>Example Component: {text}</div>
+export const Button = ({ children, onClick }) => {
+  return (
+    <ButtonUmix
+      className={styles.button}
+      onClickUmix={() => {
+        onClick()
+      }}
+    >
+      {children}
+    </ButtonUmix>
+  )
 }

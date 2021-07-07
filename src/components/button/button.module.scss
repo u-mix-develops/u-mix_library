@@ -1,0 +1,44 @@
+@import '../../main.module.scss';
+
+.button{
+  display: inline-block;
+  padding: 6px 20px;
+  color: white;
+  font-size: $font_size;
+  outline: none;
+  border-radius: $radius;
+  background-color: $main_color;
+  cursor: pointer;
+}
+.button_light{
+  border: 1px solid $main_darker_color;
+  &:hover{
+    background-color: $main_darker_color;
+  }
+}
+.button_dark{
+  border: 1px solid $main_lighter_color;
+  &:hover{
+    background-color: $main_lighter_color;
+  }
+}
+.button_outline{
+  background-color: inherit;
+  &:hover{
+    background-color: inherit;
+  }
+}
+.button_outline{
+  &.button_light{
+    color: black;
+  }
+}
+.button_outline{
+  &.button_dark{
+    color: white;
+  }
+}
+.button_first{
+  display: block;
+  text-align: center;
+}

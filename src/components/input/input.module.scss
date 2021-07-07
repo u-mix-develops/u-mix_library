@@ -1,0 +1,23 @@
+@import '../../main.module.scss';
+
+.input{
+    width: auto;
+    padding: 6px;
+    outline: none;
+    border: 1px solid $grey;
+    border-radius: $radius;
+    font-size: $font_size;
+    background-color: inherit;
+}
+.input_light{
+    color: black;
+    &::placeholder {
+        color: rgb(116, 116, 116);
+    }
+}
+.input_dark{
+    color: white;
+    &::placeholder {
+        color: $grey;
+    }
+}

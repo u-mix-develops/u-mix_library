@@ -1,18 +1,24 @@
 /* eslint-disable prettier/prettier */
-import React, {useContext, useEffect, useState}  from 'react'
-import {DarkContext} from '../container/Container'
+import React, {useEffect, useState}  from 'react'
 import styles from './image.module.scss'
+
+let imgWidth;
+let imgHeight;
 
 export default function ImageUmix(
     {
         children,
         className,
         style,
-        dark,
+        contentClassName,
+        contentStyle,
         src,
+        type,
+        size,
+        contentSize,
+        blockPosition
     }) {
 
-    const [isLoading, setIsLoading] = useState(false);
     const [color, setColor] = useState('')
 
     useEffect(() => {
@@ -31,6 +37,9 @@ export default function ImageUmix(
             length,
             rgb = {r:0,g:0,b:0},
             count = 0;
+
+            imgWidth = imgEl.width;
+            imgHeight = imgEl.height;
 
             canvas = document.createElement('canvas')
             context = canvas.getContext('2d')
@@ -60,22 +69,42 @@ export default function ImageUmix(
             let c = 0.2126*rgb.r + 0.7152*rgb.g + 0.0722*rgb.b;
             let color = c < 128 ? "white" : "black";
             setColor(color);
-            setIsLoading(true)
         }
     }, []);
 
-    const darkContainer = useContext(DarkContext)
-    if(!isLoading) return <div>Loading...</div>
+    if(!color) return <div>Loading...</div>
     return (
         <div 
-            style={{
-                ...style,
-                backgroundImage: `url(${src})`,
-                color: color,
-            }} 
-            className={styles.image + " " + className}
+            style={
+                    {
+                        ...style,
+                        backgroundImage: `url(${src})`,
+                        color: color,
+                    }
+            }
+            className={
+                styles.image + " " +
+                (blockPosition.split(" ")[0] === "left" ? styles.left : 
+                    (blockPosition.split(" ")[0] === "right" ? styles.right : "") 
+                ) + " " +
+                (blockPosition.split(" ")[1] === "top" ? styles.top :
+                    (blockPosition.split(" ")[1] === "bottom" ? styles.bottom : "")
+                ) + " " +
+                className
+            }
         >
-            {children}
+            <div 
+                style={{
+                    ...contentSize,
+                    contentStyle
+                }} 
+                className={
+                    styles.content + " " +
+                    contentClassName
+                }
+            >
+                {children}
+            </div>
         </div>
     )
 }

@@ -9,6 +9,7 @@ export default function ButtonUmix(
         style,
         className,
         type,
+        stretched,
         dark,
         onClick,
     }) {
@@ -21,12 +22,13 @@ export default function ButtonUmix(
             className={
                 styles.button + " " +
                 (dark === undefined ? (darkContainer ? styles.button_dark : styles.button_light) : (dark ? styles.button_dark : styles.button_light)) + " " +
+                (stretched ? styles.button_stretched : "") + " " +
                 (type === "classic" ? "" : 
                     (type === "square" ? styles.button_square :
                         (type === "realistic" ? styles.button_realistic :
-                            (type === "stretched" ? styles.button_stretched: 
-                                (type === "floating" ? styles.button_floating : 
-                                    (type === "outline" ? styles.button_outline : "")
+                            (type === "floating" ? styles.button_floating : 
+                                (type === "outline" ? styles.button_outline : 
+                                    (type === "rounded" ? styles.button_rounded : "")
                                 )
                             )
                         )

@@ -34,7 +34,6 @@
     border-radius: $radius 0 0 $radius;
     font-size: $font_size;
     background-color: inherit;
-    flex: 1 1 auto;
 }
 .input_light{
     color: black;
@@ -55,8 +54,21 @@
     border-radius: 0 $radius $radius 0;
 }
 
-.input_no_stretched{
-    flex: 0 0 auto;
+.input_stretched{
+    flex: 1 1 auto;
+}
+
+.input_square{
+    border-radius: 0 !important;
+}
+.input_rounded{
+    border-radius: 0 !important;
+    border: none;
+    border-bottom: 1px solid $grey;
+    margin-right: 5px;
+    &.input_btn_left{
+        margin-left: 5px;
+    }
 }
 // styles for button:
 .button{
@@ -173,6 +185,10 @@
         border: 1px solid $main_lighter_color !important;
         color: white;
     }
+}
+.button_rounded{
+    border-radius: 30px !important;
+    border: none !important;
 }
 
 .button_left{

@@ -6,6 +6,7 @@ import ButtonUmix from './components/button/Button'
 import InputUmix from './components/input/Input'
 import InputButtonUmix from './components/inputButton/InputButton'
 import ImageUmix from './components/image/Image'
+import AvatarUmix from './components/avatar/Avatar'
 
 export const Container = ({ children, ...props }) => {
   return (
@@ -36,5 +37,10 @@ export const Image = ({ children, ...props }) => {
     <ImageUmix {...props}> 
       {children} 
     </ImageUmix>
+  )
+}
+export const Avatar = ({ images, defaultImage, ...props }) => {
+  return (
+    <AvatarUmix images={[defaultImage, ...images]} defaultImage={defaultImage} {...props} />
   )
 }

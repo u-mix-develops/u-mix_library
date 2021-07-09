@@ -8,7 +8,8 @@ export default function InputUmix(
         className,
         style,
         dark,
-        onChange, 
+        onChange,
+        stretched,
         placeholder,
     }) {
 
@@ -21,6 +22,7 @@ export default function InputUmix(
             className={
                 styles.input + " " + 
                 (dark == undefined ? (darkContainer ? styles.input_dark : styles.input_light) : (dark ? styles.input_dark : styles.input_light)) + " " +
+                (stretched ? styles.input_stretched : "") + " " +
                 className
             }
             onChange={onChange}

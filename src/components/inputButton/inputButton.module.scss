@@ -1,0 +1,182 @@
+@import '../../main.module.scss';
+
+// styles for main(parent) div:
+.main_btn_left{
+    display: -webkit-flex;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -ms-flex-direction: row-reverse;
+    -webkit-flex-direction: row-reverse;
+    flex-direction: row-reverse;
+    justify-content: flex-end
+}
+.main_btn_right{
+    display: -webkit-flex;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -ms-flex-direction: row;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+}
+// styles for input:
+.input{
+    width: auto;
+    padding: 6px;
+    outline: none;
+    border: 1px solid $grey;
+    border-right: 0px;
+    border-radius: $radius 0 0 $radius;
+    font-size: $font_size;
+    background-color: inherit;
+    flex: 1 1 auto;
+}
+.input_light{
+    color: black;
+    &::placeholder {
+        color: rgb(116, 116, 116);
+    }
+}
+.input_dark{
+    color: white;
+    &::placeholder {
+        color: $grey;
+    }
+}
+
+.input_btn_left{
+    border-right: 1px solid $grey;
+    border-left: 0px;
+    border-radius: 0 $radius $radius 0;
+}
+
+.input_no_stretched{
+    flex: 0 0 auto;
+}
+// styles for button:
+.button{
+    display: inline-block;
+    padding: 6px 20px;
+    color: white;
+    font-size: $font_size;
+    outline: none;
+    border-width: 1px;
+    border-style: solid;
+    border-left: 0px;
+    border-radius: 0 $radius $radius 0;
+    background-color: $main_color;
+    cursor: pointer;
+}
+.button_light{
+    border-color: $grey;
+    &:hover{
+        background-color: $main_darker_color;
+    }
+}
+.button_dark{
+    border-color: $grey;
+    &:hover{
+        background-color: $main_lighter_color;
+    }
+}
+
+.button_square{
+    color: white;
+    border-radius: 0px !important;
+    &:active{
+        box-shadow: inset 1px 1px 10px -1px rgba(0, 0, 0, 0.7);
+    }
+}
+.button_third {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    outline: none;
+    vertical-align: middle;
+    text-decoration: none;
+    font-weight: 600;
+    color: white;
+    text-transform: uppercase;
+    padding: 18px 30px;
+    background: $main_color;
+    border: 2px solid $main_darker_color;
+    border-radius: 0.75em;
+    transition: transform 0.15s;
+    transform-style: preserve-3d;
+    &:hover {
+        background: $main_lighter_color;
+        transform: translate(0, 0.25em);
+    }
+    &:active {
+        background: $main_lighter_color;
+        transform: translate(0em, 0.75em);
+    }
+    &::before {
+        position: absolute;
+        content: "";
+        width: calc(100% + 2px);
+        height: 100%;
+        top: 0;
+        left: -1px;
+        right: 0;
+        bottom: 0;
+        background: $main_more_lighter_color;
+        border-radius: inherit;
+        box-shadow: 0 0 0 1px $main_darker_color;
+        transform: translate3d(0, 0.75em, -1em);
+        transition: 0.15s;
+    }
+    &:hover::before {
+        box-shadow: 0 0 0 1px $main_darker_color;
+        transform: translate3d(0, 0.5em, -1em);
+    }
+    &:active::before {
+        box-shadow: 0 0 0 1px $main_darker_color;
+        transform: translate3d(0, 0, -1em);
+    }
+}
+.button_forth {
+    display: block;
+    text-align: center;
+}
+.button_fifth {
+    border-radius: 45px;
+    text-align: center;
+    letter-spacing: 3px;
+    font-weight: 600;
+    color: black;
+    background: white;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    transition: 0.3s;
+}
+.button_fifth:hover {
+    background: $main_color;
+    box-shadow: 0 15px 20px rgba(0, 113, 233, 0.4);
+    color: white;
+    transform: translateY(-7px);
+}
+.button_outline{
+    background-color: inherit;
+    &:hover{
+        background-color: inherit;
+    }
+    &.button_light{
+        border: 1px solid $main_darker_color !important;
+        color: black;
+    }
+    &.button_dark{
+        border: 1px solid $main_lighter_color !important;
+        color: white;
+    }
+}
+
+.button_left{
+    border-radius: $radius 0 0 $radius;
+    border-left: 1px solid $grey;
+    border-right: 0px;
+}

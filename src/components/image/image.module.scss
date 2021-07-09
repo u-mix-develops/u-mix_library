@@ -1,13 +1,11 @@
+@import '../../main.module.scss';
+
 .image{
+    padding: 10px;
     min-width: 50px;
     min-height: 50px;
+    border-radius: $radius;
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
-}
-.image_light{
-    color: black;
-}
-.image_dark{
-    color: white;
 }

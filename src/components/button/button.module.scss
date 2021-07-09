@@ -6,6 +6,7 @@
   color: white;
   font-size: $font_size;
   outline: none;
+  box-sizing: border-box;
   border-radius: $radius;
   background-color: $main_color;
   cursor: pointer;
@@ -22,23 +23,96 @@
     background-color: $main_lighter_color;
   }
 }
+
+.button_square{
+  color: white;
+  border: none;
+  border-radius: 0px;
+  &:active{
+    box-shadow: inset 1px 1px 10px -1px rgba(0, 0, 0, 0.7);
+  }
+}
+.button_realistic {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  outline: none;
+  vertical-align: middle;
+  text-decoration: none;
+  font-weight: 600;
+  color: white;
+  text-transform: uppercase;
+  padding: 10px 22px;
+  background: $main_color;
+  border: 2px solid $main_darker_color;
+  border-radius: 0.75em;
+  transition: transform 0.15s;
+  transform-style: preserve-3d;
+  &:hover {
+    background: $main_lighter_color;
+    border: 2px solid $main_color;
+    transform: translate(0, 0.25em);
+  }
+  &:active {
+    background: $main_lighter_color;
+    transform: translate(0em, 0.75em);
+  }
+  &::before {
+    position: absolute;
+    content: "";
+    width: calc(100% + 2px);
+    height: 100%;
+    top: -2px;
+    left: -1px;
+    right: 0;
+    bottom: 0;
+    background: $main_more_lighter_color;
+    border-radius: inherit;
+    box-shadow: 0 0 0 1px $main_darker_color;
+    transform: translate3d(0, 0.75em, -1em);
+    transition: 0.15s;
+  }
+  &:hover::before {
+    box-shadow: 0 0 0 1px $main_darker_color;
+    transform: translate3d(0, 0.5em, -1em);
+  }
+  &:active::before {
+    box-shadow: 0 0 0 1px $main_darker_color;
+    transform: translate3d(0, 0, -1em);
+  }
+}
+.button_stretched {
+  display: block;
+  text-align: center;
+}
+.button_floating {
+  border-radius: 45px;
+  text-align: center;
+  letter-spacing: 3px;
+  font-weight: 600;
+  color: black;
+  background: white;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+  transition: 0.3s;
+  &.button_dark{
+    box-shadow: 0 8px 15px rgba(255, 255, 255, 0.2);
+  }
+  &:hover {
+    background: $main_color;
+    box-shadow: 0 15px 20px rgba(0, 113, 233, 0.4);
+    color: white;
+    transform: translateY(-7px);
+  }
+}
 .button_outline{
   background-color: inherit;
   &:hover{
     background-color: inherit;
   }
-}
-.button_outline{
   &.button_light{
     color: black;
   }
-}
-.button_outline{
   &.button_dark{
     color: white;
   }
-}
-.button_first{
-  display: block;
-  text-align: center;
 }

@@ -1,9 +1,9 @@
 @import '../../main.module.scss';
 
 .input{
-    width: auto;
     padding: 6px;
     outline: none;
+    box-sizing: border-box;
     border: 1px solid $grey;
     border-radius: $radius;
     font-size: $font_size;
@@ -20,4 +20,8 @@
     &::placeholder {
         color: $grey;
     }
+}
+
+.input_stretched{
+    width: 100%;
 }

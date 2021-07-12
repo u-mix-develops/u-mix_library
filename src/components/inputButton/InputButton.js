@@ -28,7 +28,7 @@ export default function InputUmix(
             style={containerStyle}
             className={
                 (btnLeft ? styles.main_btn_left : styles.main_btn_right) + " " +
-                containerClassName
+                (containerClassName ? containerClassName : "")
             }
         >
             <input 

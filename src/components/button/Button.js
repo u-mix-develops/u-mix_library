@@ -34,7 +34,7 @@ export default function ButtonUmix(
                         )
                     )
                 ) + " " +
-                className
+                (className ? className : "")
             }
             onClick={onClick}
         >

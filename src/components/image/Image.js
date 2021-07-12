@@ -13,15 +13,25 @@ export default function ImageUmix(
         contentClassName,
         contentStyle,
         src,
-        type,
-        size,
-        contentSize,
-        blockPosition
+        minWidth,
+        blockPosition,
+        textPosition
     }) {
 
     const [color, setColor] = useState('')
 
     useEffect(() => {
+        const updateImgPosition = () => {
+            let backgroundImage = document.getElementById("image");
+            let scrollHeight = document.body.scrollHeight;
+            let scrollTop = window.scrollY;
+            let innerHeight = window.innerHeight;
+        
+            backgroundImage.style.transform = "translate3d(0,"+ (((backgroundImage.scrollHeight - innerHeight) / 100) * ((scrollTop / (innerHeight - scrollHeight)) * 100)) + "px,0)"
+        };
+        
+        document.addEventListener('scroll', updateImgPosition)
+
         let img = new Image();
         img.crossOrigin = "anonymous";
         img.src = src;
@@ -70,16 +80,21 @@ export default function ImageUmix(
             let color = c < 128 ? "white" : "black";
             setColor(color);
         }
+        return () => {
+            document.removeEventListener('scroll', updateImgPosition)
+        }
     }, []);
 
     if(!color) return <div>Loading...</div>
     return (
         <div 
+            id="image"
             style={
                     {
-                        ...style,
+                        minWidth: minWidth,
                         backgroundImage: `url(${src})`,
                         color: color,
+                        ...style,
                     }
             }
             className={
@@ -90,17 +105,21 @@ export default function ImageUmix(
                 (blockPosition.split(" ")[1] === "top" ? styles.top :
                     (blockPosition.split(" ")[1] === "bottom" ? styles.bottom : "")
                 ) + " " +
-                className
+                (className ? className : "")
             }
         >
             <div 
                 style={{
-                    ...contentSize,
                     contentStyle
                 }} 
                 className={
                     styles.content + " " +
-                    contentClassName
+                    (textPosition === "left" ? styles.text_left : 
+                        (textPosition === "right" ? styles.text_right : 
+                            (textPosition === "center" ? styles.text_center : "")
+                        )
+                    ) + " " +
+                    (contentClassName ? contentClassName : "")
                 }
             >
                 {children}

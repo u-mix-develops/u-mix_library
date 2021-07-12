@@ -43,7 +43,7 @@ export default function AvatarUmix(
                         className={
                             styles.back + " " +
                             (dark === undefined ? (darkContainer ? styles.dark : styles.light) : (dark ? styles.dark : styles.light)) + " " +
-                            backClassName
+                            (backClassName ? backClassName : "")
                         }
                         onClick={closeModal}
                     >
@@ -55,7 +55,7 @@ export default function AvatarUmix(
                         className={
                             styles.modal + " " +
                             (dark === undefined ? (darkContainer ? styles.dark : styles.light) : (dark ? styles.dark : styles.light)) + " " +
-                            modalClassName
+                            (modalClassName ? modalClassName : "")
                         }
                     >
                         <div 
@@ -125,7 +125,7 @@ export default function AvatarUmix(
                             (type === "circle" ? styles.circle : "")
                         )
                     ) + " " +
-                    className
+                    (className ? className : "")
                 }
                 onClick={() => setIsModal(true)}
             >

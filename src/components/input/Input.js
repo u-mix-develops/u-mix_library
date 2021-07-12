@@ -25,7 +25,7 @@ export default function InputUmix(
                 (dark == undefined ? (darkContainer ? styles.input_dark : styles.input_light) : (dark ? styles.input_dark : styles.input_light)) + " " +
                 (stretched ? styles.input_stretched : "") + " " +
                 (type === "rounded" ? styles.input_rounded : "") + " " +
-                className
+                (className ? className : "")
             }
             onChange={onChange}
             placeholder={placeholder}

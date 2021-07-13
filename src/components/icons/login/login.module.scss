@@ -1,0 +1,7 @@
+.main{
+    display: inline-block;
+    cursor: pointer;
+    &:hover .path {
+        fill: #6bbfab;
+    }
+}

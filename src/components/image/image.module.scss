@@ -1,0 +1,38 @@
+@import '../../main.module.scss';
+
+.image{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    min-width: 150px;
+    height: 150px;
+    border-radius: $radius;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+.left{
+    align-items: flex-start;
+}
+.right{
+    align-items: flex-end;
+}
+.top{
+    justify-content: flex-start;
+}
+.bottom{
+    justify-content: flex-end;
+}
+
+.content{
+    width: 50%;
+    &.text_left{
+        text-align: left;
+    }
+    &.text_right{
+        text-align: right;
+    }
+    &.text_center{
+        text-align: center;
+    }
+}

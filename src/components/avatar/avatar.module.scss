@@ -1,0 +1,105 @@
+@import '../../main.module.scss';
+
+//styles for avatar image
+.avatar{
+    display: inline-block;
+    padding: 10px;
+    width: 174px;
+    height: 232px;
+    border-radius: $radius;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    cursor: pointer;
+}
+.micro{
+    width: 24px;
+    height: 32px;
+}
+.min{
+    width: 126px;
+    height: 168px;
+}
+.medium{
+    width: 174px;
+    height: 232px;
+}
+.large{
+    width: 225px;
+    height: 300px;
+}
+.square, .circle{
+    &.micro{
+        width: 25px;
+        height: 25px;
+    }
+    &.min{
+        width: 126px;
+        height: 126px;
+    }
+    &.medium{
+        width: 174px;
+        height: 174px;
+    }
+    &.large{
+        width: 225px;
+        height: 225px;
+    }
+}
+.square{
+    border-radius: 0;
+}
+.circle{
+    border-radius: 50%;
+}
+//styles for modal
+.back{
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 100000000;
+    cursor: pointer;
+    &.dark{
+        background-color: rgba(255, 255, 255, 0.4);
+    }
+}
+.modal{
+    position: absolute;
+    height: 80vh;
+    width: 80vw;
+    top: 10vh;
+    left: 10vw;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+    background-color: white;
+    border-radius: $radius;
+    z-index: 100000001;
+    &.dark{
+        background-color: #292929;
+    }
+}
+.btnClose{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 100000002;
+    cursor: pointer;
+}
+.btnPrev{
+    position: absolute;
+    top: calc(50% - 35px);
+    left: 20px;
+    z-index: 100000002;
+    cursor: pointer;
+}
+.btnNext{
+    position: absolute;
+    top: calc(50% - 35px);
+    right: 20px;
+    z-index: 100000002;
+    cursor: pointer;
+}

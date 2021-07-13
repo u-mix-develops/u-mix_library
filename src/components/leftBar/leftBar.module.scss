@@ -1,0 +1,105 @@
+@import '../../main.module.scss';
+
+.leftBar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
+    width: 0px;
+    height: 100vh;
+    overflow-y: auto;
+    transition: 0.1s;
+    animation: move 0.8s 1;
+    animation-fill-mode: forwards;
+    overflow: hidden;
+    z-index: 200;
+    &.light{
+        background-color: rgb(187, 187, 187);
+    }
+    &.dark{
+        background-color: #444444;
+    }
+    a, div{
+        display: block;
+        box-sizing: border-box;
+        padding: 15px 0 15px 12.5px;
+    }
+    &.styled{
+        a{
+            text-decoration: none;
+        }
+        div{
+            cursor: pointer;
+        }
+        &.light{
+            a, div{
+                color: black;
+            }
+            a:hover, div:hover{
+                color: #444444;
+                border-right: 4px solid #444444;
+            }
+        }
+        &.dark{
+            a, div{
+                color: white;
+            }
+            a:hover, div:hover{
+                color: rgb(187, 187, 187);
+                border-right: 4px solid rgb(187, 187, 187);
+            }
+        }
+    }
+    .burger{
+        position: static;
+        padding: 10px 0 30px 12.5px;
+        &:hover{
+            border: none !important;
+        }
+    }
+}
+.burger{
+    padding: 10px 0 30px 12.5px;
+    z-index: 100;
+}
+.minBar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    transition: 0.1s;
+    animation: remove 0.8s 1;
+    animation-fill-mode: forwards;
+    overflow: hidden;
+    min-width: 60px;
+    height: 100vh;
+    &.light{
+        background-color: rgb(187, 187, 187);
+    }
+    &.dark{
+        background-color: #444444;
+    }
+}
+.margin{
+    min-width: 60px;
+    height: 100vh;
+}
+.min_margin{
+    min-width: 60px;
+    height: 100vh;
+}
+@keyframes move{
+    0% { 
+        min-width: 60px;
+    }
+    100% { 
+        min-width: 220px;
+    }
+}
+@keyframes remove{
+    0% { 
+        min-width: 220px;
+    }
+    100% { 
+        min-width: 60px;
+    }
+}

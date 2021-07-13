@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import React, { createContext } from 'react'
 import styles from './container.module.scss'
 

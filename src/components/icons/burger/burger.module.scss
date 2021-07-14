@@ -1,7 +1,14 @@
 .main{
     display: inline-block;
     cursor: pointer;
+}
+.dark{
     &:hover .path {
         fill: #a9a9a9;
+    }
+}
+.light{
+    &:hover .path {
+        fill: #292929;
     }
 }

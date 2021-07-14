@@ -22,10 +22,6 @@ export default function AvatarUmix(
     const [imagesIndex, setImagesIndex] = useState(0)
     const darkContainer = useContext(DarkContext)
 
-    useEffect(() => {
-        console.log(imagesIndex)
-    }, [imagesIndex])
-
     const closeModal = () => {
         setIsModal(false)
         setImagesIndex(0)

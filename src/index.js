@@ -4,18 +4,14 @@ import styles from './styles.module.scss'
 import MainUmix from './components/main/Main'
 import ContentUmix from './components/content/Content'
 import ContainerUmix from './components/container/Container'
-import HeaderUmix from './components/header/Header'
-import LeftBarUmix from './components/leftBar/LeftBar'
+import NavbarUmix from './components/navbar/Navbar'
 import ButtonUmix from './components/button/Button'
 import InputUmix from './components/input/Input'
 import InputButtonUmix from './components/inputButton/InputButton'
 import ImageUmix from './components/image/Image'
 import AvatarUmix from './components/avatar/Avatar'
 import PreloaderUmix from './components/preloader/Preloader'
-import LogoutUmix from './components/icons/logout/Logout'
-import LoginUmix from './components/icons/login/Login'
-import SettingsUmix from './components/icons/settings/Settings'
-import BurgerUmix from './components/icons/burger/Burger'
+import IconUmix from './components/icons/Icon'
 
 export const Main = ({ children, ...props }) => {
   return (
@@ -38,18 +34,9 @@ export const Container = ({ children, ...props }) => {
     </ContainerUmix>
   )
 }
-export const Header = ({ children, ...props }) => {
+export const Navbar = ({ ...props }) => {
   return (
-    <HeaderUmix {...props}> 
-      {children} 
-    </HeaderUmix>
-  )
-}
-export const LeftBar = ({ children, ...props }) => {
-  return (
-    <LeftBarUmix {...props}> 
-      {children} 
-    </LeftBarUmix>
+    <NavbarUmix {...props} />
   )
 }
 export const Button = ({ children, ...props }) => {
@@ -86,23 +73,8 @@ export const Preloader = ({ ...props }) => {
     <PreloaderUmix {...props} />
   )
 }
-export const Logout = ({ ...props }) => {
+export const Icon = ({ ...props }) => {
   return (
-    <LogoutUmix {...props} />
-  )
-}
-export const Login = ({ ...props }) => {
-  return (
-    <LoginUmix {...props} />
-  )
-}
-export const Settings = ({ ...props }) => {
-  return (
-    <SettingsUmix {...props} />
-  )
-}
-export const Burger = ({ ...props }) => {
-  return (
-    <BurgerUmix {...props} />
+    <IconUmix {...props} />
   )
 }

@@ -1,9 +1,13 @@
 import React, {Fragment, useState} from 'react'
+import {NavLink} from 'react-router-dom'
 import BurgerUmix from '../icons/burger/Burger'
 import styles from './header.module.scss'
 
+let isLoaded = false;
+
 export default function HeaderUmix({
-        children,
+        isLogin,
+        params,
         darkContainer,
         dark,
         noStyled,
@@ -11,7 +15,25 @@ export default function HeaderUmix({
         className
     }) {
 
-    // const [isMenu, setIsMenu] = useState(false);
+    const [isMenu, setIsMenu] = useState(false);
+    const [link, setLink] = useState(0);
+
+    let links = params.map((param, i) => {
+        if(isLogin === param.logined) return <NavLink 
+                    key={i} 
+                    to={param.route}
+                    className={
+                        (dark == undefined ? (darkContainer ? styles.dark : styles.light) : (dark ? styles.dark : styles.light)) + " " +
+                        (link === i ? styles.active : "")
+                    }
+                    onClick={() => {
+                        setIsMenu(false)
+                        setLink(i);
+                    }}
+                >
+                {param.text}
+            </NavLink>
+    })
 
     return (
         <>
@@ -24,14 +46,17 @@ export default function HeaderUmix({
                     (className ? className : "")
                 }
             >
-                {children}
-                {/* <BurgerUmix 
+                {links}
+                <BurgerUmix 
                     className={styles.burger}
                     dark={(dark == undefined ? darkContainer : dark)}
-                    onClick={() => setIsMenu(prev => !prev)}
-                /> */}
+                    onClick={() => {
+                        setIsMenu(prev => !prev)
+                        isLoaded = true;
+                    }}
+                />
             </div>
-            {/* {
+            {
                 isMenu
                 ?
                     <div 
@@ -41,11 +66,17 @@ export default function HeaderUmix({
                             (dark == undefined ? (darkContainer ? styles.dark : styles.light) : (dark ? styles.dark : styles.light))
                         }
                     >
-                        {children}
+                        {links}
                     </div>
                 :
-                    null
-            } */}
+                    <div
+                        className={
+                            styles.second_margin + " " +
+                            (isLoaded ? styles.animate : "") + " " +
+                            (dark == undefined ? (darkContainer ? styles.dark : styles.light) : (dark ? styles.dark : styles.light))
+                        }
+                    ></div>
+            }
             <div className={styles.margin}></div>
         </>
     )

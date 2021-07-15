@@ -15,22 +15,22 @@ export default function ImageUmix(
         src,
         minWidth,
         blockPosition,
-        textPosition
+        textPosition,
+        speed
     }) {
 
     const [color, setColor] = useState('')
+    const [coords, setCoords] = useState('50% 50%')
 
     useEffect(() => {
         const updateImgPosition = () => {
-            let backgroundImage = document.getElementById("image");
-            let scrollHeight = document.body.scrollHeight;
-            let scrollTop = window.scrollY;
-            let innerHeight = window.innerHeight;
+            let speedIs = speed / 1000;
+            let yPos = -(content.scrollTop * speedIs);
         
-            backgroundImage.style.transform = "translate3d(0,"+ (((backgroundImage.scrollHeight - innerHeight) / 100) * ((scrollTop / (innerHeight - scrollHeight)) * 100)) + "px,0)"
+            setCoords('50% calc(50% - ' + yPos + 'px)');
         };
-        
-        document.addEventListener('scroll', updateImgPosition)
+        let content = document.getElementById("content");
+        content.addEventListener('scroll', updateImgPosition)
 
         let img = new Image();
         img.crossOrigin = "anonymous";
@@ -81,7 +81,7 @@ export default function ImageUmix(
             setColor(color);
         }
         return () => {
-            document.removeEventListener('scroll', updateImgPosition)
+            content.removeEventListener('scroll', updateImgPosition)
         }
     }, []);
 
@@ -93,6 +93,7 @@ export default function ImageUmix(
                     {
                         minWidth: minWidth,
                         backgroundImage: `url(${src})`,
+                        backgroundPosition: coords,
                         color: color,
                         ...style,
                     }

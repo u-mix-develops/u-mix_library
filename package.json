@@ -1,6 +1,6 @@
 {
   "name": "u-mix_library",
-  "version": "1.0.5",
+  "version": "1.0.7",
   "description": "disign package for u-mix",
   "author": "evgzap",
   "license": "MIT",
@@ -51,6 +51,7 @@
     "dist"
   ],
   "dependencies": {
+    "react-router-dom": "^5.2.0",
     "sass": "^1.35.1"
   }
 }

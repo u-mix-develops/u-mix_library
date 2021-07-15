@@ -1,0 +1,186 @@
+@import '../../main.module.scss';
+
+.leftBar{
+    position: fixed;
+    top: 0;
+    left: -160px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box;
+    min-width: 220px;
+    height: 100vh;
+    overflow-y: auto;
+    z-index: 200;
+    &.light{
+        background-color: rgb(187, 187, 187);
+    }
+    &.dark{
+        background-color: #444444;
+    }
+    .full_link{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        box-sizing: border-box;
+        padding: 15px 0 15px 12.5px;
+        cursor: pointer;
+        text-decoration: none;
+        .icon{
+            padding: 0 15px 0 0;
+        }
+        &:hover .icon {
+            padding: 0 11px 0 0;
+        }
+        &.light{
+            color: black;
+            &:hover{
+                border-right: 4px solid #444444;
+                color: #444444;
+            }
+            &:hover div{
+                svg{
+                    path {
+                        fill: #444444;
+                    }
+                }
+            }
+        }
+        &.dark{
+            color: white;
+            &:hover{
+                border-right: 4px solid rgb(187, 187, 187);
+                color: rgb(187, 187, 187);
+            }
+            &:hover div{
+                svg{
+                    path {
+                        fill: #a9a9a9;
+                    }
+                }
+            }
+        }
+    }
+    .burger{
+        padding: 10px 0 30px 175px;
+        z-index: 100;
+        &:hover{
+            border: none !important;
+        }
+        &.right{
+            transition: 0.1s;
+            animation: right 0.8s 1;
+            animation-fill-mode: forwards;
+        }
+        &.left{
+            &.animate{
+                transition: 0.1s;
+                animation: left 0.8s 1;
+                animation-fill-mode: forwards;
+            }
+        }
+    }
+    .bottom{
+        opacity: 0;
+        &.right{
+            transition: 0.1s;
+            animation: become 0.8s 1;
+            animation-fill-mode: forwards;
+        }
+        &.left{
+            &.animate{
+                transition: 0.1s;
+                animation: disapear 0.8s 1;
+                animation-fill-mode: forwards;
+            }
+        }
+        .profile_img{
+            margin: 0 0 20px 50px;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background-position: center center;
+            background-size: cover;
+        }
+        .profile_name{
+            text-align: center;
+        }
+        .profile_info{
+            text-align: center;
+            margin: 0 0 20px 0;
+        }
+    }
+}
+.maxBar{
+    transition: 0.1s;
+    animation: move 0.8s 1;
+    animation-fill-mode: forwards;
+    overflow: hidden;
+    min-width: 220px;
+    z-index: 200;
+    .min_icon{
+        padding: 15px 15px 18px 15px;
+    }
+}
+.minBar{
+    &.animate{
+        transition: 0.1s;
+        animation: remove 0.8s 1;
+        animation-fill-mode: forwards;
+        overflow: hidden;
+        min-width: 220px;
+    }
+}
+.margin{
+    min-width: 60px;
+    height: 100vh;
+}
+@keyframes move{
+    0% { 
+        left: -160px;
+    }
+    100% { 
+        left: 0;
+    }
+}
+@keyframes remove{
+    0% { 
+        left: 0;
+    }
+    100% { 
+        left: -160px;
+    }
+}
+@keyframes left{
+    0% { 
+        padding-left: 15px;
+    }
+    100% { 
+        padding-left: 175px;
+    }
+}
+@keyframes right{
+    0% { 
+        padding-left: 175px;
+    }
+    100% { 
+        padding-left: 15px;
+    }
+}
+@keyframes disapear{
+    0% { 
+        opacity: 1;
+    }
+    100% { 
+        opacity: 0;
+    }
+}
+@keyframes become{
+    0% { 
+        opacity: 0;
+    }
+    100% { 
+        opacity: 1;
+    }
+}

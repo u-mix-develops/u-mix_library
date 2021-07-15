@@ -15,7 +15,8 @@ export default function InputUmix(
         type,
         btnText,
         onChange,
-        onClick,
+        inputOnClick,
+        btnOnClick,
         btnLeft,
         stretched,
         placeholder,
@@ -47,6 +48,7 @@ export default function InputUmix(
                     inputClassName
                 }
                 onChange={onChange}
+                onClick={inputOnClick}
                 placeholder={placeholder}
             />
             <div 
@@ -64,7 +66,7 @@ export default function InputUmix(
                     (btnLeft ? styles.button_left : "") + " " +
                     buttonClassName
                 }
-                onClick={onClick}
+                onClick={btnOnClick}
             >
                 {btnText}
             </div>
